@@ -158,3 +158,10 @@ TEST(PiezasTest, testTie) {
     bool TESTER = p.gameState() == Blank;
     ASSERT_TRUE(TESTER);
 }
+
+TEST(PiezasTest, incompleteBoard) {
+    Piezas p;
+    p.dropPiece(0);
+    bool TESTER = p.gameState() == X;
+    ASSERT_FALSE(TESTER);
+}
