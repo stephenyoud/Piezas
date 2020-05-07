@@ -22,6 +22,6 @@ TEST(PiezasTest, sanityCheck)
 TEST(PiezasTest, testConstructor)
 {
     Piezas p;
-    bool TESTER = p.board[0][0] == Blank;
+    bool TESTER = p.pieceAt(0, 0) == Blank;
 	ASSERT_TRUE(TESTER);
 }
