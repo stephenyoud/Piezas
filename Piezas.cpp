@@ -38,6 +38,11 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            board[i][j] = Blank;
+        }
+    }
 }
 
 /**
@@ -50,7 +55,27 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    int row = 0;
+    Piece t = turn;
+    if (turn == X) {
+        turn = O;
+    } else {
+        turn = X;
+    }
+
+    if (column > 3)
+        return Blank;
+
+    while (row < 3) {
+        if (board[row][column] != blank)
+            row++;
+    }
+
+    if (row == 3)
+        return Blank;
+
+    board[row][column] = t;
+    return t;
 }
 
 /**
