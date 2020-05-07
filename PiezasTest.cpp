@@ -60,3 +60,15 @@ TEST(PiezasTest, stackTwoPieces) {
     bool TESTER = (p.pieceAt(0, 2) == X && p.pieceAt(1, 2) == O);
     ASSERT_TRUE(TESTER);
 }
+
+TEST(PiezasTest, dropOutOfBounds) {
+    Piezas p;
+    bool TESTER = (p.dropPiece(4) == X || p.dropPiece(-1) == 0);
+    ASSERT_FALSE(TESTER);
+}
+
+TEST(PiezasTest, checkOutOfBounds) {
+    Piezas p;
+    bool TESTER = (p.pieceAt(-1, -1) == BLANK || p.pieceAt(3, 4) == BLANK);
+    ASSERT_TRUE(TESTER);
+}
