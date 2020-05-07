@@ -102,5 +102,53 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    Piece winner = Blank;
+
+    int lenX = 0;
+    int lenO = 0;
+    for (int i = 0; i < 3; i++) {
+        Piece cur = Blank;
+        int lenTmp = 0;
+        for (int j = 0; j < 4; j++) {
+            if (board[i][j] == Blank) {
+                return winner;
+            }
+            if (board[i][j] == cur) 
+                lenTmp++;
+            else {
+                if (cur == X && lenTmp > lenX) {
+                    lenX = lenTmp;
+                } else if (cur == O && lenTmp > lenO) {
+                    lenO = lenTmp;
+                }
+                cur = board[i][j];
+                lenTmp = 1;
+            }
+        }
+    }
+    for (int j = 0; j < 4; j++) {
+        Piece cur = Blank;
+        int lenTmp = 0;
+        for (int i = 0; i < 3; i++) {
+            if (board[i][j] == cur) 
+                lenTmp++;
+            else {
+                if (cur == X && lenTmp > lenX) {
+                    lenX = lenTmp;
+                } else if (cur == O && lenTmp > lenO) {
+                    lenO = lenTmp;
+                }
+                cur = board[i][j];
+                lenTmp = 1;
+            }
+        }
+    }
+
+    if (lenX > lenO) {
+        winner = X;
+    } else if (lenX < len0) {
+        winner = O;
+    }
+    
+    return winner;
 }
