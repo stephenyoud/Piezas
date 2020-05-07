@@ -120,7 +120,7 @@ Piece Piezas::gameState()
             if (board[i][j] == cur) 
                 lenTmp++;
             else {
-                std::cout << "New one found" << std::endl;
+                std::cout << cur << ": " << lenTmp << std::endl;
                 if (cur == X && lenTmp > lenX) {
                     lenX = lenTmp;
                 } else if (cur == O && lenTmp > lenO) {
