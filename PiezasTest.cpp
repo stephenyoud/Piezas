@@ -18,3 +18,10 @@ TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest, testConstructor)
+{
+    Piezas p;
+    bool TESTER = p.board[0][0] == Blank;
+	ASSERT_TRUE(TESTER);
+}
