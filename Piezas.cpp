@@ -148,7 +148,7 @@ Piece Piezas::gameState()
 
     if (lenX > lenO) {
         winner = X;
-    } else if (lenX < len0) {
+    } else if (lenX < lenO) {
         winner = O;
     }
     
