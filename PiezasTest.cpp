@@ -69,6 +69,15 @@ TEST(PiezasTest, dropOutOfBounds) {
 
 TEST(PiezasTest, checkOutOfBounds) {
     Piezas p;
-    bool TESTER = (p.pieceAt(-1, -1) == BLANK || p.pieceAt(3, 4) == BLANK);
+    bool TESTER = (p.pieceAt(-1, -1) == Blank || p.pieceAt(3, 4) == Blank);
     ASSERT_TRUE(TESTER);
+}
+
+TEST(PiezasTest, tooManyStacked) {
+    Piezas p;
+    p.dropPiece(0);
+    p.dropPiece(0);
+    p.dropPiece(0);
+    bool TESTER = p.dropPiece(0) == O;
+    ASSERT_FALSE(TESTER);
 }
