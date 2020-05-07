@@ -110,7 +110,7 @@ Piece Piezas::gameState()
     int lenX = 0;
     int lenO = 0;
     for (int i = 0; i < 3; i++) {
-        Piece cur = Blank;
+        Piece cur = board[i][0];
         int lenTmp = 1;
         for (int j = 0; j < 4; j++) {
             if (board[i][j] == Blank) {
@@ -134,20 +134,23 @@ Piece Piezas::gameState()
         }
     }
     for (int j = 0; j < 4; j++) {
-        Piece cur = Blank;
-        int lenTmp = 0;
+        Piece cur = board[0][j];
+        int lenTmp = 1;
         for (int i = 0; i < 3; i++) {
             if (board[i][j] == cur) 
                 lenTmp++;
-            else {
-                if (cur == X && lenTmp > lenX) {
-                    lenX = lenTmp;
-                } else if (cur == O && lenTmp > lenO) {
-                    lenO = lenTmp;
-                }
-                cur = board[i][j];
+            else
                 lenTmp = 1;
+
+            std::cout << cur << ": " << lenTmp << std::endl;
+            if (cur == X && lenTmp > lenX) {
+                lenX = lenTmp;
+                std::cout << "Set new X" << std::endl;
+            } else if (cur == O && lenTmp > lenO) {
+                lenO = lenTmp;
+                std::cout << "Set new O" << std::endl;
             }
+            cur = board[i][j];
         }
     }
 
