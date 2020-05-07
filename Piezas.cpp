@@ -68,9 +68,7 @@ Piece Piezas::dropPiece(int column)
     if (column > 3 || column < 0)
         return Blank;
 
-    while (row < 3) {
-        if (board[row][column] == Blank)
-            break;
+    while (board[row][column] != Blank) {
         row++;
     }
 

@@ -81,3 +81,11 @@ TEST(PiezasTest, tooManyStacked) {
     bool TESTER = p.dropPiece(0) == O;
     ASSERT_FALSE(TESTER);
 }
+
+TEST(PiezasTest, reset) {
+    Piezas p;
+    p.dropPiece(0);
+    p.reset();
+    bool TESTER = p.pieceAt(0, 0) == Blank;
+    ASSERT_TRUE(TESTER);
+}
