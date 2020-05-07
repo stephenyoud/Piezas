@@ -22,6 +22,14 @@
 **/
 Piezas::Piezas()
 {
+    for (int i = 0; i < 3; i++) {
+        std::vector<Piece> tmp;
+        for (int j = 0; j < 4; j++) {
+            Piece p = Blank;
+            tmp.push_back(p);
+        }
+        board.push_back(tmp);
+    }
 }
 
 /**
