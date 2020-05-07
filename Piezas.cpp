@@ -30,6 +30,8 @@ Piezas::Piezas()
         }
         board.push_back(tmp);
     }
+
+    turn = X;
 }
 
 /**
@@ -84,7 +86,10 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    if (row >= 3 || row < 0 || column >= 4 || column < 0)
+        return Blank;
+
+    return board[row][column];
 }
 
 /**
