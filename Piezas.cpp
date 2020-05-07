@@ -111,7 +111,7 @@ Piece Piezas::gameState()
     int lenO = 0;
     for (int i = 0; i < 3; i++) {
         Piece cur = Blank;
-        int lenTmp = 0;
+        int lenTmp = 1;
         for (int j = 0; j < 4; j++) {
             if (board[i][j] == Blank) {
                 std::cout << "Empty spot found" << std::endl;
@@ -119,18 +119,18 @@ Piece Piezas::gameState()
             }
             if (board[i][j] == cur) 
                 lenTmp++;
-            //else {
-                std::cout << cur << ": " << lenTmp << std::endl;
-                if (cur == X && lenTmp > lenX) {
-                    lenX = lenTmp;
-                    std::cout << "Set new X" << std::endl;
-                } else if (cur == O && lenTmp > lenO) {
-                    lenO = lenTmp;
-                    std::cout << "Set new O" << std::endl;
-                }
-                cur = board[i][j];
+            else
                 lenTmp = 1;
-            //}
+
+            std::cout << cur << ": " << lenTmp << std::endl;
+            if (cur == X && lenTmp > lenX) {
+                lenX = lenTmp;
+                std::cout << "Set new X" << std::endl;
+            } else if (cur == O && lenTmp > lenO) {
+                lenO = lenTmp;
+                std::cout << "Set new O" << std::endl;
+            }
+            cur = board[i][j];
         }
     }
     for (int j = 0; j < 4; j++) {
