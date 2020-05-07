@@ -65,7 +65,7 @@ Piece Piezas::dropPiece(int column)
         turn = X;
     }
 
-    if (column > 3)
+    if (column > 3 || column < 0)
         return Blank;
 
     while (board[row][column] != Blank) {
