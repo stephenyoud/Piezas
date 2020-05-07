@@ -89,3 +89,72 @@ TEST(PiezasTest, reset) {
     bool TESTER = p.pieceAt(0, 0) == Blank;
     ASSERT_TRUE(TESTER);
 }
+
+TEST(PiezasTest, testWinHorz) {
+    /*
+        XXXO
+        OOOO
+        XXXO
+    */
+    Piezas p;
+    p.dropPiece(0);
+    p.dropPiece(0);
+    p.dropPiece(0);
+    p.dropPiece(3);
+    p.dropPiece(1);
+    p.dropPiece(1);
+    p.dropPiece(1);
+    p.dropPiece(3);
+    p.dropPiece(2);
+    p.dropPiece(2);
+    p.dropPiece(2);
+    p.dropPiece(3);
+    bool TESTER = p.gameState() == O;
+    ASSERT_TRUE(TESTER);
+}
+
+TEST(PiezasTest, testWinVert) {
+    /*
+        OXXO
+        XXOO
+        OXOX
+    */
+    Piezas p;
+    p.dropPiece(1);
+    p.dropPiece(0);
+    p.dropPiece(3);
+    p.dropPiece(2);
+    p.dropPiece(0);
+    p.dropPiece(2);
+    p.dropPiece(1);
+    p.dropPiece(3);
+    p.dropPiece(1);
+    p.dropPiece(0);
+    p.dropPiece(2);
+    p.dropPiece(3);
+    bool TESTER = p.gameState() == X;
+    ASSERT_TRUE(TESTER);
+}
+
+TEST(PiezasTest, testTie) {
+    /*
+        XOXO
+        XXOO
+        OXOX
+    */
+    Piezas p;
+    p.dropPiece(1);
+    p.dropPiece(0);
+    p.dropPiece(3);
+    p.dropPiece(2);
+    p.dropPiece(0);
+    p.dropPiece(2);
+    p.dropPiece(1);
+    p.dropPiece(3);
+    p.dropPiece(0);
+    p.dropPiece(1);
+    p.dropPiece(2);
+    p.dropPiece(3);
+    bool TESTER = p.gameState() == X;
+    ASSERT_TRUE(TESTER);
+}
