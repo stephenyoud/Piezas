@@ -155,6 +155,6 @@ TEST(PiezasTest, testTie) {
     p.dropPiece(1);
     p.dropPiece(2);
     p.dropPiece(3);
-    bool TESTER = p.gameState() == X;
+    bool TESTER = p.gameState() == Blank;
     ASSERT_TRUE(TESTER);
 }
