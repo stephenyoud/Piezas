@@ -1,4 +1,5 @@
 #include "Piezas.h"
+#include <iostream>
 #include <vector>
 /** CLASS Piezas
  * Class for representing a Piezas vertical board, which is roughly based
@@ -113,6 +114,7 @@ Piece Piezas::gameState()
         int lenTmp = 0;
         for (int j = 0; j < 4; j++) {
             if (board[i][j] == Blank) {
+                std::cout << "Empty spot found" << std::endl;
                 return winner;
             }
             if (board[i][j] == cur) 
