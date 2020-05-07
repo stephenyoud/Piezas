@@ -119,16 +119,18 @@ Piece Piezas::gameState()
             }
             if (board[i][j] == cur) 
                 lenTmp++;
-            else {
+            //else {
                 std::cout << cur << ": " << lenTmp << std::endl;
                 if (cur == X && lenTmp > lenX) {
                     lenX = lenTmp;
+                    std::cout << "Set new X" << std::endl;
                 } else if (cur == O && lenTmp > lenO) {
                     lenO = lenTmp;
+                    std::cout << "Set new O" << std::endl;
                 }
                 cur = board[i][j];
                 lenTmp = 1;
-            }
+            //}
         }
     }
     for (int j = 0; j < 4; j++) {
